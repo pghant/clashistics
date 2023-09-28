@@ -1,7 +1,11 @@
 export default function About() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      This is the about page
-    </main>
+    <section>
+      <h1 className="text-4xl my-8">Welcome to Clashistics</h1>
+      <p className="mt-4">
+        You can use this site to keep track of your progress in Clash of Clans.
+        Track your own account as well as your clan&#39;s progress.
+      </p>
+    </section>
   );
 }

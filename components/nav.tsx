@@ -19,7 +19,7 @@ function NavLink({ href, text, handleNavLinkClick }: NavLinkProps) {
       <Link
         className={`${
           isActive ? 'active' : ''
-        } p-0 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400`}
+        } p-0 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:px-2 [&.active]:text-teal-600 dark:[&.active]:text-teal-400`}
         aria-current="page"
         href={href}
         onClick={handleNavLinkClick}
