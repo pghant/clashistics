@@ -7,9 +7,10 @@ import { usePathname } from 'next/navigation';
 type NavLinkProps = {
   href: string;
   text: string;
+  handleNavLinkClick: () => void;
 };
 
-function NavLink({ href, text }: NavLinkProps) {
+function NavLink({ href, text, handleNavLinkClick }: NavLinkProps) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
@@ -18,9 +19,10 @@ function NavLink({ href, text }: NavLinkProps) {
       <Link
         className={`${
           isActive ? 'active' : ''
-        } p-0 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400`}
+        } p-0 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:px-2 [&.active]:text-teal-600 dark:[&.active]:text-teal-400`}
         aria-current="page"
         href={href}
+        onClick={handleNavLinkClick}
       >
         {text}
       </Link>
@@ -33,6 +35,10 @@ export default function Nav() {
 
   function handleNavToggle() {
     setShowNav(!showNav);
+  }
+
+  function handleNavLinkClick() {
+    setShowNav(false);
   }
 
   return (
@@ -74,8 +80,16 @@ export default function Nav() {
           } mt-2 flex-grow basis-[100%] items-center md:mt-0 md:flex md:basis-auto`}
         >
           <ul className="list-style-none mr-auto flex flex-col pl-0 md:mt-1 md:flex-row">
-            <NavLink href="/" text="Home" />
-            <NavLink href="/about" text="About" />
+            <NavLink
+              href="/"
+              text="Home"
+              handleNavLinkClick={handleNavLinkClick}
+            />
+            <NavLink
+              href="/about"
+              text="About"
+              handleNavLinkClick={handleNavLinkClick}
+            />
           </ul>
         </div>
       </div>
