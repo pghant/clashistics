@@ -1,4 +1,4 @@
-import Search from '@components/search';
+import Search from '@/components/search';
 
 export default function Home() {
   return (
@@ -11,9 +11,6 @@ export default function Home() {
           the search bar below to find your player by entering the player tag.
         </p>
         <Search />
-      </section>
-      <section>
-        <h2 className="text-2xl my-4">Player details</h2>
       </section>
     </>
   );

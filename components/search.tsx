@@ -1,13 +1,17 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 export default function Search() {
+  const router = useRouter();
+
   function handleSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const form = event.target as HTMLFormElement;
-    const formData = new FormData(form);
+    const formData = new FormData(event.target as HTMLFormElement);
+    const playerTag = (formData.get('search') as string).replace('#', '');
 
-    console.log(formData);
+    router.push(`/player/${playerTag}`);
   }
 
   return (
@@ -15,6 +19,7 @@ export default function Search() {
       <input
         name="search"
         type="text"
+        autoComplete="off"
         className="w-full my-8 p-3 rounded-lg border focus:border-teal-600 focus:outline-none dark:bg-neutral-600 dark:border-neutral-600 dark:focus:border-teal-400"
       />
       <div className="flex">
